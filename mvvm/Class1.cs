@@ -9,8 +9,25 @@ using System.Windows.Media.TextFormatting;
 
 namespace mvvm
 {
-    public class ProgressbarProgress
+    public class ProgressbarProgress : INotifyPropertyChanged
     {
-        public decimal progress { get; set; } = 0;
+        private decimal progress1; //default value of progress1
+
+        public decimal progress
+        {
+            get => progress1; //continuous get and set of progress for object 
+            
+            set
+            {
+                progress1 = value;
+                OnPropertyChanged();//fire off notification of object that value has changed
+            }
+        }
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName/*name of property changed ie: progress*/] string? name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));//notifies gui to update specific any areas of specific object that pertains to said value
+        }
     }
 }

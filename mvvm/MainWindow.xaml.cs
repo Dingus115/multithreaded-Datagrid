@@ -49,20 +49,9 @@ namespace mvvm
         {
             while (fill.progress < 100)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
                 fill.progress++;
-                refreshGridFunction();
             }
-        }
-
-        private void refreshDatgrid(object sender, RoutedEventArgs e)//Manual refresh button
-        {
-            refreshGridFunction();   
-        }
-
-        private void refreshGridFunction()
-        {
-            this.Dispatcher.Invoke(new Action(() => { progressBarDataGrid.Items.Refresh(); }));
         }
     }
 }

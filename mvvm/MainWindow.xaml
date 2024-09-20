@@ -24,9 +24,6 @@
         <Button Content="Press to add"
                 Margin="5"
                 Grid.Column="2" Click="addObject"/>
-        <Button Content="Press to refresh"
-                Margin="5"
-                Grid.Column="3" Click="refreshDatgrid"/>
         <!--<Label Name="firstName"
                Grid.Row="2"
                Grid.Column="3"
@@ -41,14 +38,17 @@
         <DataGrid Grid.Row="1"
                   Grid.RowSpan="4"
                   Grid.ColumnSpan="5"
-                  x:Name="progressBarDataGrid">
+                  x:Name="progressBarDataGrid"
+>
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Restart buttons" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="reset counter"
+                            <Button Content="Start counter"
                                     Margin="5"
-                                    Click="Button_Click"/>
+                                    Click="Button_Click"
+                                    Background="Black"
+                                    Foreground="Red"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
